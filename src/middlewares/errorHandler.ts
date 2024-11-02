@@ -11,9 +11,9 @@ export class HttpError extends Error {
 
 export function errorHandler(
   err: HttpError,
-  req: Request,
+  _req: Request,
   res: Response,
-  next: NextFunction,
+  _next: NextFunction,
 ): void {
   console.error(err.stack);
   res.status(err.statusCode || 500).json({ message: err.message });
