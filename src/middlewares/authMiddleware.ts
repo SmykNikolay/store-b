@@ -2,8 +2,7 @@ import { Request, Response, NextFunction } from 'express';
 import dotenv from 'dotenv';
 import path from 'path';
 
-// Явно указываем путь к .env файлу
-dotenv.config({ path: path.resolve(__dirname, '../.env') });
+dotenv.config({ path: path.resolve(__dirname, '../../.env') });
 
 class AuthMiddleware {
   private static _instance: AuthMiddleware;

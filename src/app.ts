@@ -2,6 +2,8 @@ import 'reflect-metadata';
 import express, { Request, Response, NextFunction } from 'express';
 import { json } from 'body-parser';
 import cors from 'cors';
+import dotenv from 'dotenv';
+import path from 'path';
 
 import AuthMiddleware from './middlewares/authMiddleware';
 
@@ -10,9 +12,15 @@ import ProductRouter from './routes/products';
 import DatabaseSingleton from './database';
 import { errorHandler } from './middlewares/errorHandler';
 
+dotenv.config({ path: path.resolve(__dirname, '../.env') });
+
 const app = express();
 
-const allowedOrigins = ['http://localhost:5173', 'http://192.168.100.22:5173'];
+const allowedOrigins = [
+  'http://localhost:5173',
+  'http://192.168.100.21:5173',
+  'http://192.168.100.22:5173',
+];
 
 const corsOptions: cors.CorsOptions = {
   origin: (origin, callback) => {
